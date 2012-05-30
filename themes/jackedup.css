@@ -2,15 +2,22 @@ html,
 body {
   height: 100%;
 }
+.humane-container {
+  position: fixed;
+  top: 20px;
+  left: 30%;
+  width: 40%;
+  z-index: 100000;
+}
 .humane,
 .humane-jackedup {
-  position: fixed;
+  cursor: pointer;
+  margin-bottom: 4px;
   -moz-transition: all 0.6s ease-in-out;
   -webkit-transition: all 0.6s ease-in-out;
   -ms-transition: all 0.6s ease-in-out;
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
-  z-index: 100000;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
 .humane,
@@ -18,10 +25,7 @@ body {
   font-family: Helvetica Neue, Helvetica, san-serif;
   font-size: 18px;
   letter-spacing: -1px;
-  top: 20px;
-  left: 30%;
   opacity: 0;
-  width: 40%;
   color: #333;
   padding: 10px;
   text-align: center;

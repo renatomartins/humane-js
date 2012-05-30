@@ -2,6 +2,12 @@
    var doc = document
 
    var ENV = {
+      contnrCls: 'humane-container',
+      createContnr: function() {
+         var contnr = doc.createElement('div')
+         contnr.className = this.contnrCls
+         doc.body.appendChild(contnr)
+      },
       on: function (el, type, cb) {
          'addEventListener' in win ? el.addEventListener(type,cb,false) : el.attachEvent('on'+type,cb)
       },
@@ -29,6 +35,7 @@
             }
       }
    }
+   ENV.createContnr()
    ENV._checkTransition()
 
    var Humane = function (o) {
@@ -50,7 +57,8 @@
       _setupEl: function () {
          var el = doc.createElement('div')
          el.style.display = 'none'
-         doc.body.appendChild(el)
+         //doc.body.appendChild(el)
+         doc.getElementsByClassName(ENV.contnrCls)[0].appendChild(el)
          this.el = el
          this.removeEvent = ENV.bind(this.remove,this)
          this.transEvent = ENV.bind(this._afterAnimation,this)
